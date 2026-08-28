@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">El Fogón</string>
+    <string name="tagline">El sabor que llega hasta tu hogar</string>
+    <string name="hint_email">Correo electrónico</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="recordarme">Recordarme</string>
+    <string name="btn_iniciar_sesion">Iniciar sesión</string>
+    <string name="no_tienes_cuenta">¿No tienes cuenta? </string>
+    <string name="registrarse"> Registrate</string>
+    <string name="registro_titulo">Crear cuenta</string>
+    <string name="hint_nombre">Nombre completo</string>
+    <string name="hint_telefono">Teléfono</string>
+    <string name="hint_direccion">Dirección</string>
+    <string name="hint_confirmar_password">Confirmar contraseña</string>
+    <string name="btn_crear_cuenta">Crear cuenta</string>
+    <string name="ya_tienes_cuenta">¿Ya tienes cuenta? </string>
+    <string name="inicia_sesion">Inicia sesión</string>
+    <string name="hint_buscar">Buscar comida...</string>
+    <string name="promo_titulo">HAMBURGUESA\n2X1</string>
+    <string name="promo_subtitulo">¡Por tiempo limitado!</string>
+    <string name="categorias_titulo">Categorías</string>
+    <string name="ver_todas">Ver todas</string>
+    <string name="destacados_titulo">Destacados</string>
+    <string name="cat_hamburguesas">Hamburguesas</string>
+    <string name="cat_pizzas">Pizzas</string>
+    <string name="cat_tacos">Tacos</string>
+    <string name="cat_bebidas">Bebidas</string>
+    <string name="cat_postres">Postres</string>
+    <string name="producto_pizza">Pizza Pepperoni</string>
+    <string name="producto_pizza_precio">$12.00</string>
+    <string name="producto_pizza_rating">4.8</string>
+    <string name="producto_hamburguesa">Hamburguesa Clásica</string>
+    <string name="producto_hamburguesa_precio">$8.50</string>
+    <string name="producto_hamburguesa_rating">4.7</string>
+    <string name="btn_agregar">Agregar</string>
+    <string name="nav_inicio">Inicio</string>
+    <string name="nav_menu">Menú</string>
+    <string name="nav_carrito">Carrito</string>
+    <string name="nav_pedidos">Pedidos</string>
+    <string name="nav_perfil">Perfil</string>
+
+    <!-- Strings de menu despegable del Home -->
+    <string name="menu_bienvenida">¡Bienvenido!</string>
+    <string name="menu_perfil">Perfil</string>
+    <string name="menu_pedidos">Mis pedidos</string>
+    <string name="menu_favoritos">Favoritos</string>
+    <string name="menu_direcciones">Direcciones guardadas</string>
+    <string name="menu_metodos_pago">Métodos de pago</string>
+    <string name="menu_ayuda">Ayuda y soporte</string>
+    <string name="menu_cerca_de_mi">Cerca de mí</string>
+    <string name="menu_configuracion">Configuración</string>
+    <string name="menu_cerrar_sesion">Cerrar sesión</string>
+
+</resources>

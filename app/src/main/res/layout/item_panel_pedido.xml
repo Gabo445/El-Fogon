@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tarjeta de un pedido en el panel de control: cliente, productos, dirección y el botón grande que avanza el pedido. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:background="@drawable/bg_card_white"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Número y estado -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvNumeroPanel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/fogonBlack"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="Pedido #012" />
+
+        <TextView
+            android:id="@+id/tvEstadoPanel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_pedido_chip"
+            android:paddingStart="10dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="4dp"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            tools:text="Por confirmar" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvFechaPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/fogonGrayText"
+        android:textSize="12sp"
+        tools:text="11 de octubre de 2026 · 2:39 p.m. · hace 5 min" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@color/fogonBorderGray" />
+
+    <!-- Cliente: foto, nombre y teléfono -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivFotoCliente"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:background="@drawable/bg_perfil_foto"
+            android:clipToOutline="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_perfil_avatar" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvNombreCliente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/fogonBlack"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:text="María López" />
+
+            <TextView
+                android:id="@+id/tvTelefonoCliente"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/fogonGrayText"
+                android:textSize="13sp"
+                tools:text="7123-4567" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Llamar / WhatsApp (se esconden si el cliente no dejó teléfono) -->
+    <LinearLayout
+        android:id="@+id/layoutContacto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btnLlamar"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_perfil_cerrar_sesion"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:text="📞 Llamar"
+            android:textColor="@color/fogonRed"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/btnWhatsApp"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_perfil_cerrar_sesion"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:text="💬 WhatsApp"
+            android:textColor="@color/fogonRed"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@color/fogonBorderGray" />
+
+    <!-- Productos -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Productos"
+        android:textColor="@color/fogonBlack"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvProductosPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:lineSpacingExtra="2dp"
+        android:textColor="@color/fogonBlack"
+        android:textSize="13sp"
+        tools:text="2 × Pizza Pepperoni · Mediana\n    Extras: Queso extra\n1 × Limonada" />
+
+    <!-- Total y pago -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Total"
+            android:textColor="@color/fogonBlack"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvTotalPanel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/fogonRed"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="$24.04" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvPagoPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/fogonGrayText"
+        android:textSize="12sp"
+        tools:text="Efectivo\nPagas al recibir tu pedido" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@color/fogonBorderGray" />
+
+    <!-- Dirección -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Entregar en"
+        android:textColor="@color/fogonBlack"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvDireccionPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/fogonBlack"
+        android:textSize="13sp"
+        tools:text="Soyapango — Colonia Las Margaritas, pasaje 3" />
+
+    <TextView
+        android:id="@+id/btnComoLlegar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_perfil_cerrar_sesion"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:text="📍 Cómo llegar (Google Maps)"
+        android:textColor="@color/fogonRed"
+        android:textSize="13sp"
+        android:textStyle="bold" />
+
+    <!-- El botón grande que avanza el pedido. Su texto cambia según el estado. -->
+    <TextView
+        android:id="@+id/btnAccionPanel"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_button_red"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:gravity="center"
+        android:textColor="@color/fogonWhite"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        tools:text="✅ Confirmar pedido" />
+
+    <!-- Reemplaza al botón cuando el pedido ya se entregó -->
+    <TextView
+        android:id="@+id/tvFinalizadoPanel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:gravity="center"
+        android:textColor="#2E7D32"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        tools:text="✅ Entregado a las 3:10 p.m." />
+
+</LinearLayout>

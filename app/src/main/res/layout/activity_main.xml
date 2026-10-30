@@ -13,7 +13,6 @@
         android:gravity="center_horizontal"
         android:padding="32dp">
 
-        <!-- Logo -->
         <ImageView
             android:layout_width="150dp"
             android:layout_height="150dp"
@@ -37,7 +36,6 @@
             android:textColor="@color/fogonGrayText"
             android:textSize="13sp" />
 
-        <!-- Campo correo -->
         <EditText
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
@@ -51,7 +49,6 @@
             android:textColorHint="@color/fogonGrayText"
             android:textSize="15sp" />
 
-        <!-- Campo contraseña -->
         <EditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
@@ -67,7 +64,6 @@
             android:textColorHint="@color/fogonGrayText"
             android:textSize="15sp" />
 
-        <!-- Recordarme -->
         <CheckBox
             android:id="@+id/cbRecordarme"
             android:layout_width="wrap_content"
@@ -79,7 +75,6 @@
             android:textColor="@color/fogonBlack"
             android:textSize="14sp" />
 
-        <!-- Botón Iniciar sesión -->
         <Button
             android:id="@+id/btnIniciarSesion"
             android:layout_width="match_parent"
@@ -93,7 +88,6 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <!-- Divisor -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -122,7 +116,18 @@
                 android:background="@color/fogonBorderGray" />
         </LinearLayout>
 
-        <!-- Footer -->
+        <Button
+            android:id="@+id/btnGoogleSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_input"
+            app:backgroundTint="@null"
+            android:text="Continuar con Google"
+            android:textAllCaps="false"
+            android:textColor="@color/fogonBlack"
+            android:textSize="15sp" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

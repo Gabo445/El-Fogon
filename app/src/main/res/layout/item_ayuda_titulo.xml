@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Título de una sección de Ayuda ("Mis pedidos", "Entrega"...). -->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tvTituloSeccion"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="22dp"
+    android:layout_marginBottom="10dp"
+    android:textColor="@color/fogonBlack"
+    android:textSize="16sp"
+    android:textStyle="bold"
+    tools:text="Mis pedidos" />

@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pantalla del Carrito: lista real de lo que se agregó, con cantidad,
+     extras, y el resumen de precios (subtotal, entrega, impuestos, total). -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fogonBgLight">
+
+    <!-- Barra de navegación inferior (igual que en las demás pantallas, con "Carrito" activo) -->
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/fogonWhite"
+        android:elevation="8dp"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:weightSum="5">
+
+        <LinearLayout
+            android:id="@+id/navInicio"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_home"
+                android:tint="@color/fogonGrayText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/nav_inicio"
+                android:textColor="@color/fogonGrayText"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navMenu"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_grid_menu"
+                android:tint="@color/fogonGrayText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/nav_menu"
+                android:textColor="@color/fogonGrayText"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navCarrito"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_cart"
+                android:tint="@color/fogonRed" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/nav_carrito"
+                android:textColor="@color/fogonRed"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navPedidos"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_receipt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/nav_pedidos"
+                android:textColor="@color/fogonGrayText"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navPerfil"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_person" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/nav_perfil"
+                android:textColor="@color/fogonGrayText"
+                android:textSize="11sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Botón fijo "Proceder al pago", justo arriba del bottomNav -->
+    <LinearLayout
+        android:id="@+id/btnProcederPago"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_above="@id/bottomNav"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/bg_button_red"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Proceder al pago"
+            android:textAllCaps="false"
+            android:textColor="@color/fogonWhite"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Header + contenido con scroll -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/btnProcederPago"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_arrow_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/app_name"
+                android:textAllCaps="true"
+                android:textColor="@color/fogonRed"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <FrameLayout
+                android:id="@+id/ivCart"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_cart"
+                    android:tint="@color/fogonRed" />
+
+                <TextView
+                    android:id="@+id/tvCartBadge"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_gravity="top|end"
+                    android:background="@drawable/bg_badge_red"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/fogonWhite"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+            </FrameLayout>
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tu carrito"
+                    android:textColor="@color/fogonBlack"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <!-- Fila de la dirección de entrega -->
+                <LinearLayout
+                    android:id="@+id/rowDireccion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_input"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📍"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tvDireccionGuardada"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:text="Pon tu dirección"
+                        android:textColor="@color/fogonBlack"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="›"
+                        android:textColor="@color/fogonGrayText"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <!-- Banner de entrega estimada -->
+                <LinearLayout
+                    android:id="@+id/rowCambiarEntrega"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_input"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🛵"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tvTiempoEstimado"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:text="Entrega estimada: 30 - 40 min"
+                        android:textColor="@color/fogonBlack"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <!-- Solo aparece si la dirección guardada tiene coordenadas GPS -->
+                <TextView
+                    android:id="@+id/tvVerEnMapa"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="🗺️ Ver ubicación en el mapa"
+                    android:textColor="@color/fogonRed"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+                <!-- Estado vacío -->
+                <LinearLayout
+                    android:id="@+id/layoutCarritoVacio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="60dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🛒"
+                        android:textSize="48sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="Tu carrito está vacío"
+                        android:textColor="@color/fogonBlack"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Agrega algo rico del menú"
+                        android:textColor="@color/fogonGrayText"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/btnIrAlMenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/bg_button_red"
+                        android:paddingStart="24dp"
+                        android:paddingEnd="24dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Ver Menú"
+                        android:textAllCaps="false"
+                        android:textColor="@color/fogonWhite"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Contenido cuando sí hay productos -->
+                <LinearLayout
+                    android:id="@+id/layoutCarritoConItems"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:id="@+id/contenedorItems"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:orientation="vertical" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/bg_input"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="¿Tienes un código promocional?"
+                            android:textColor="@color/fogonBlack"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:id="@+id/etCodigoPromocional"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_card_white"
+                                android:hint="Escribe tu código"
+                                android:inputType="textCapCharacters"
+                                android:padding="10dp"
+                                android:singleLine="true"
+                                android:textColor="@color/fogonBlack"
+                                android:textColorHint="@color/fogonGrayText"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/btnAplicarCodigo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:text="Aplicar"
+                                android:textColor="@color/fogonRed"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tvMensajeCodigo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:visibility="gone"
+                            tools:text="✓ Código BIENVENIDO10 aplicado: 10% de descuento" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/bg_card_white"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="Resumen del pedido"
+                            android:textColor="@color/fogonBlack"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="6dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Subtotal"
+                                android:textColor="@color/fogonGrayText"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/tvSubtotal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/fogonBlack"
+                                android:textSize="13sp"
+                                tools:text="$19.50" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/rowDescuento"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="6dp"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Descuento"
+                                android:textColor="@color/fogonGrayText"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/tvDescuento"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/fogonRed"
+                                android:textSize="13sp"
+                                tools:text="-$1.95" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="6dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Costo de entrega"
+                                android:textColor="@color/fogonGrayText"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/tvCostoEntrega"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/fogonBlack"
+                                android:textSize="13sp"
+                                tools:text="$2.00" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Impuestos"
+                                android:textColor="@color/fogonGrayText"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/tvImpuestos"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/fogonBlack"
+                                android:textSize="13sp"
+                                tools:text="$2.54" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@color/fogonBorderGray" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Total"
+                                android:textColor="@color/fogonBlack"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvTotal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/fogonRed"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                tools:text="$24.04" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</RelativeLayout>

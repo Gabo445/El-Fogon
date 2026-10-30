@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "5070427489",
+    "project_id": "el-fogon-f3640",
+    "storage_bucket": "el-fogon-f3640.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5070427489:android:b9024c85e0d67cbde96120",
+        "android_client_info": {
+          "package_name": "com.example.elfogonlogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5070427489-g9qbppe7p1jqkd2lo5e2k7a6p7gcnvo6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.elfogonlogin",
+            "certificate_hash": "9fb29741af1782714b36c8e2c6edbbcd16c1763c"
+          }
+        },
+        {
+          "client_id": "5070427489-gm8to60t57u182gail57pt9b5c12kgtf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBg7KG00wmtLE37QwwxzehdtdAALwCij5A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "5070427489-gm8to60t57u182gail57pt9b5c12kgtf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

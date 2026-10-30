@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fogonBgLight">
+
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/fogonWhite"
+        android:elevation="8dp"
+        android:orientation="horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:weightSum="5">
+
+        <LinearLayout
+            android:id="@+id/navInicio"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_home"
+                android:tint="@color/fogonGrayText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/nav_inicio"
+                android:textColor="@color/fogonGrayText"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navMenu"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_grid_menu"
+                android:tint="@color/fogonRed" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/nav_menu"
+                android:textColor="@color/fogonRed"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navCarrito"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_cart" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/nav_carrito"
+                android:textColor="@color/fogonGrayText"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navPedidos"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_receipt" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/nav_pedidos"
+                android:textColor="@color/fogonGrayText"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/navPerfil"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_person" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="@string/nav_perfil"
+                android:textColor="@color/fogonGrayText"
+                android:textSize="11sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomNav"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="16dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_arrow_back" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/app_name"
+                    android:textAllCaps="true"
+                    android:textColor="@color/fogonRed"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <FrameLayout
+                    android:id="@+id/ivCart"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_cart"
+                        android:tint="@color/fogonRed" />
+
+                    <TextView
+                        android:id="@+id/tvCartBadge"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_gravity="top|end"
+                        android:background="@drawable/bg_badge_red"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/fogonWhite"
+                        android:textSize="9sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+                </FrameLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_input"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_search" />
+
+                <EditText
+                    android:id="@+id/etBuscar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="@string/hint_buscar"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:singleLine="true"
+                    android:textColor="@color/fogonGrayText"
+                    android:textColorHint="@color/fogonGrayText"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/tabHamburguesas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="18dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="6dp">
+
+                        <ImageView
+                            android:id="@+id/ivTabHamburguesas"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_placeholder_circle"
+                            android:clipToOutline="true"
+                            android:scaleType="centerCrop" />
+
+                        <TextView
+                            android:id="@+id/tvTabHamburguesas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/cat_hamburguesas"
+                            android:textSize="11sp" />
+
+                        <View
+                            android:id="@+id/underlineHamburguesas"
+                            android:layout_width="26dp"
+                            android:layout_height="2dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@color/fogonRed" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tabPizzas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="18dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="6dp">
+
+                        <ImageView
+                            android:id="@+id/ivTabPizzas"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_placeholder_circle"
+                            android:clipToOutline="true"
+                            android:scaleType="centerCrop" />
+
+                        <TextView
+                            android:id="@+id/tvTabPizzas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/cat_pizzas"
+                            android:textSize="11sp" />
+
+                        <View
+                            android:id="@+id/underlinePizzas"
+                            android:layout_width="26dp"
+                            android:layout_height="2dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@color/fogonRed"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tabTacos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="18dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="6dp">
+
+                        <ImageView
+                            android:id="@+id/ivTabTacos"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_placeholder_circle"
+                            android:clipToOutline="true"
+                            android:scaleType="centerCrop" />
+
+                        <TextView
+                            android:id="@+id/tvTabTacos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/cat_tacos"
+                            android:textSize="11sp" />
+
+                        <View
+                            android:id="@+id/underlineTacos"
+                            android:layout_width="26dp"
+                            android:layout_height="2dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@color/fogonRed"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tabBebidas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="18dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="6dp">
+
+                        <ImageView
+                            android:id="@+id/ivTabBebidas"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_placeholder_circle"
+                            android:clipToOutline="true"
+                            android:scaleType="centerCrop" />
+
+                        <TextView
+                            android:id="@+id/tvTabBebidas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/cat_bebidas"
+                            android:textSize="11sp" />
+
+                        <View
+                            android:id="@+id/underlineBebidas"
+                            android:layout_width="26dp"
+                            android:layout_height="2dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@color/fogonRed"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tabPostres"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="18dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="6dp">
+
+                        <ImageView
+                            android:id="@+id/ivTabPostres"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_placeholder_circle"
+                            android:clipToOutline="true"
+                            android:scaleType="centerCrop" />
+
+                        <TextView
+                            android:id="@+id/tvTabPostres"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/cat_postres"
+                            android:textSize="11sp" />
+
+                        <View
+                            android:id="@+id/underlinePostres"
+                            android:layout_width="26dp"
+                            android:layout_height="2dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@color/fogonRed"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tabBurritos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="18dp"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="6dp">
+
+                        <ImageView
+                            android:id="@+id/ivTabBurritos"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_placeholder_circle"
+                            android:clipToOutline="true"
+                            android:scaleType="centerCrop" />
+
+                        <TextView
+                            android:id="@+id/tvTabBurritos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/cat_burritos"
+                            android:textSize="11sp" />
+
+                        <View
+                            android:id="@+id/underlineBurritos"
+                            android:layout_width="26dp"
+                            android:layout_height="2dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@color/fogonRed"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tabTortas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="6dp">
+
+                        <ImageView
+                            android:id="@+id/ivTabTortas"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_placeholder_circle"
+                            android:clipToOutline="true"
+                            android:scaleType="centerCrop" />
+
+                        <TextView
+                            android:id="@+id/tvTabTortas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/cat_tortas"
+                            android:textSize="11sp" />
+
+                        <View
+                            android:id="@+id/underlineTortas"
+                            android:layout_width="26dp"
+                            android:layout_height="2dp"
+                            android:layout_marginTop="4dp"
+                            android:background="@color/fogonRed"
+                            android:visibility="invisible" />
+                    </LinearLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvCategoriaSeleccionada"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/fogonBlack"
+                    android:textSize="19sp"
+                    android:textStyle="bold"
+                    tools:text="Hamburguesas" />
+
+                <TextView
+                    android:id="@+id/tvOrdenar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/menu_ordenar"
+                    android:textColor="@color/fogonGrayText"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Área de productos: mensaje de "sin productos" o la lista real -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="16dp">
+
+                <LinearLayout
+                    android:id="@+id/layoutSinProductos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="🍽️"
+                        android:textSize="40sp" />
+
+                    <TextView
+                        android:id="@+id/tvMensajeCategoria"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center"
+                        android:textColor="@color/fogonGrayText"
+                        android:textSize="14sp"
+                        tools:text="Próximamente vas a ver aquí los platillos de Hamburguesas" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/contenedorProductos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</RelativeLayout>

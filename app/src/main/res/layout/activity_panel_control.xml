@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Panel de control (solo administrador): todos los pedidos en tiempo real, con pestañas Nuevos / En curso / Entregados. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fogonBgLight"
+    android:orientation="vertical">
+
+    <!-- Encabezado: título y botón para cerrar sesión -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="4dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Panel de control"
+            android:textColor="@color/fogonRed"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvCerrarSesion"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:background="@drawable/bg_perfil_cerrar_sesion"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="center"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:text="Cerrar sesión"
+            android:textColor="@color/fogonRed"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:text="🔔 Se actualiza solo. Las alertas suenan mientras esta pantalla esté abierta."
+        android:textColor="@color/fogonGrayText"
+        android:textSize="11sp" />
+
+    <!-- Pestañas: el código les pone el texto y los colores -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="4dp">
+
+        <TextView
+            android:id="@+id/tabNuevos"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tabEnCurso"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tabEntregados"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="4dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- "Cargando…" o el motivo del error -->
+        <TextView
+            android:id="@+id/tvCargandoPanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="24dp"
+            android:text="Cargando pedidos…"
+            android:textColor="@color/fogonGrayText"
+            android:textSize="14sp" />
+
+        <!-- Pestaña sin pedidos -->
+        <TextView
+            android:id="@+id/tvVacioPanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="24dp"
+            android:textColor="@color/fogonGrayText"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <ScrollView
+            android:id="@+id/scrollPanel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <!-- Aquí el código pone las tarjetas de los pedidos -->
+            <LinearLayout
+                android:id="@+id/contenedorPanel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp" />
+        </ScrollView>
+    </FrameLayout>
+
+</LinearLayout>

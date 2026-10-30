@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Una forma de contacto (WhatsApp, correo): ícono, título, dato y flecha. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/bg_card_white"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="12dp">
+
+    <FrameLayout
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_perfil_icono">
+
+        <ImageView
+            android:id="@+id/ivIconoContacto"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_gravity="center"
+            android:tint="@color/fogonRed"
+            tools:src="@drawable/ic_perfil_telefono" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTituloContacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/fogonBlack"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:text="WhatsApp" />
+
+        <TextView
+            android:id="@+id/tvDetalleContacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/fogonGrayText"
+            android:textSize="13sp"
+            tools:text="+503 6840 4442" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_perfil_flecha"
+        android:tint="@color/fogonBlack" />
+</LinearLayout>

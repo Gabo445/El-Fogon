@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Un paso del seguimiento: circulo + linea que baja al siguiente paso + titulo y hora. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="32dp"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/flIndicador"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_pedido_paso_hecho">
+
+            <ImageView
+                android:id="@+id/ivIndicador"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center"
+                android:tint="@color/fogonWhite"
+                tools:src="@drawable/ic_pago_check" />
+        </FrameLayout>
+
+        <View
+            android:id="@+id/viewLinea"
+            android:layout_width="2dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#2E9E44" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_weight="1"
+        android:minHeight="56dp"
+        android:orientation="vertical"
+        android:paddingTop="6dp"
+        android:paddingBottom="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvTituloPaso"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/fogonBlack"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Pedido recibido" />
+
+            <TextView
+                android:id="@+id/tvHoraPaso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/fogonGrayText"
+                android:textSize="12sp"
+                tools:text="1:30 p.m." />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvSubtituloPaso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/fogonGrayText"
+            android:textSize="12sp"
+            android:visibility="gone"
+            tools:text="Tu pedido está en camino" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/vFondoPromo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_placeholder_rounded"
+        android:clipToOutline="true"
+        android:scaleType="centerCrop" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_promo_overlay" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|center_vertical"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvPromoTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/fogonWhite"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:text="HAMBURGUESA\n2X1" />
+
+        <TextView
+            android:id="@+id/tvPromoSubtitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/fogonWhite"
+            android:textSize="13sp"
+            tools:text="¡Por tiempo limitado!" />
+
+    </LinearLayout>
+
+</FrameLayout>

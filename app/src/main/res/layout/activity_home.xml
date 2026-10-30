@@ -26,9 +26,11 @@
             android:weightSum="5">
 
             <LinearLayout
+                android:id="@+id/navInicio"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -48,9 +50,11 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/navMenu"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -69,9 +73,11 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/navCarrito"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -90,9 +96,11 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/navPedidos"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -111,9 +119,11 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/navPerfil"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -133,6 +143,7 @@
         </LinearLayout>
 
         <ScrollView
+            android:id="@+id/scrollHome"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@id/bottomNav"
@@ -167,14 +178,33 @@
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
-                    <ImageView
+                    <FrameLayout
                         android:id="@+id/ivCart"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
                         android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/ic_cart"
-                        android:tint="@color/fogonRed" />
+                        android:layout_centerVertical="true">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_cart"
+                            android:tint="@color/fogonRed" />
+
+                        <TextView
+                            android:id="@+id/tvCartBadge"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_gravity="top|end"
+                            android:background="@drawable/bg_badge_red"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:textColor="@color/fogonWhite"
+                            android:textSize="9sp"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+                    </FrameLayout>
                 </RelativeLayout>
 
                 <!-- Barra de búsqueda (ahora es un EditText de verdad) -->
@@ -206,43 +236,11 @@
                         android:inputType="text" />
                 </LinearLayout>
 
-                <FrameLayout
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewPagerPromos"
                     android:layout_width="match_parent"
                     android:layout_height="160dp"
-                    android:layout_marginTop="20dp">
-
-                    <ImageView
-                        android:id="@+id/ivPromoBanner"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/bg_placeholder_rounded"
-                        android:clipToOutline="true"
-                        android:scaleType="centerCrop" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="start|center_vertical"
-                        android:layout_margin="20dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/promo_titulo"
-                            android:textColor="@color/fogonWhite"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="@string/promo_subtitulo"
-                            android:textColor="@color/fogonWhite"
-                            android:textSize="13sp" />
-                    </LinearLayout>
-                </FrameLayout>
+                    android:layout_marginTop="20dp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -252,17 +250,20 @@
                     android:orientation="horizontal">
 
                     <View
+                        android:id="@+id/dot1"
                         android:layout_width="6dp"
                         android:layout_height="6dp"
                         android:background="@drawable/bg_dot_active" />
 
                     <View
+                        android:id="@+id/dot2"
                         android:layout_width="6dp"
                         android:layout_height="6dp"
                         android:layout_marginStart="4dp"
                         android:background="@drawable/bg_dot_inactive" />
 
                     <View
+                        android:id="@+id/dot3"
                         android:layout_width="6dp"
                         android:layout_height="6dp"
                         android:layout_marginStart="4dp"
@@ -285,6 +286,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/tvVerTodasCategorias"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/ver_todas"
@@ -304,9 +306,11 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
+                            android:id="@+id/containerCatHamburguesas"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp"
+                            android:background="?attr/selectableItemBackground"
                             android:gravity="center"
                             android:orientation="vertical">
 
@@ -328,9 +332,11 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/containerCatPizzas"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp"
+                            android:background="?attr/selectableItemBackground"
                             android:gravity="center"
                             android:orientation="vertical">
 
@@ -352,9 +358,11 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/containerCatTacos"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp"
+                            android:background="?attr/selectableItemBackground"
                             android:gravity="center"
                             android:orientation="vertical">
 
@@ -376,9 +384,11 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/containerCatBebidas"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp"
+                            android:background="?attr/selectableItemBackground"
                             android:gravity="center"
                             android:orientation="vertical">
 
@@ -400,8 +410,11 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/containerCatPostres"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:background="?attr/selectableItemBackground"
                             android:gravity="center"
                             android:orientation="vertical">
 
@@ -421,10 +434,62 @@
                                 android:textColor="@color/fogonBlack"
                                 android:textSize="11sp" />
                         </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/containerCatBurritos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:background="?attr/selectableItemBackground"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/ivCatBurritos"
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:background="@drawable/bg_placeholder_circle"
+                                android:clipToOutline="true"
+                                android:scaleType="centerCrop" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="@string/cat_burritos"
+                                android:textColor="@color/fogonBlack"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/containerCatTortas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/ivCatTortas"
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:background="@drawable/bg_placeholder_circle"
+                                android:clipToOutline="true"
+                                android:scaleType="centerCrop" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:text="@string/cat_tortas"
+                                android:textColor="@color/fogonBlack"
+                                android:textSize="11sp" />
+                        </LinearLayout>
                     </LinearLayout>
                 </HorizontalScrollView>
 
                 <LinearLayout
+                    android:id="@+id/destacadosHeader"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
@@ -440,6 +505,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/tvVerTodasDestacados"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/ver_todas"
@@ -515,6 +581,7 @@
                                     android:textSize="11sp" />
 
                                 <TextView
+                                    android:id="@+id/btnAgregarPizza"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:background="@drawable/bg_button_red"
@@ -591,6 +658,333 @@
                                     android:textSize="11sp" />
 
                                 <TextView
+                                    android:id="@+id/btnAgregarHamburguesa"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/bg_button_red"
+                                    app:backgroundTint="@null"
+                                    android:paddingStart="14dp"
+                                    android:paddingEnd="14dp"
+                                    android:paddingTop="6dp"
+                                    android:paddingBottom="6dp"
+                                    android:text="@string/btn_agregar"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/fogonWhite"
+                                    android:textSize="11sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_white"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/ivProductoTacosRes"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:background="@drawable/bg_placeholder_card"
+                            android:clipToOutline="true"
+                            android:scaleType="centerCrop" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/producto_tacos_res"
+                                android:textColor="@color/fogonBlack"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/producto_tacos_res_precio"
+                                android:textColor="@color/fogonRed"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="12dp"
+                                    android:layout_height="12dp"
+                                    android:src="@drawable/ic_star" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="4dp"
+                                    android:layout_weight="1"
+                                    android:text="@string/producto_tacos_res_rating"
+                                    android:textColor="@color/fogonGrayText"
+                                    android:textSize="11sp" />
+
+                                <TextView
+                                    android:id="@+id/btnAgregarTacosRes"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/bg_button_red"
+                                    app:backgroundTint="@null"
+                                    android:paddingStart="14dp"
+                                    android:paddingEnd="14dp"
+                                    android:paddingTop="6dp"
+                                    android:paddingBottom="6dp"
+                                    android:text="@string/btn_agregar"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/fogonWhite"
+                                    android:textSize="11sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_white"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/ivProductoBurritos5Capas"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:background="@drawable/bg_placeholder_card"
+                            android:clipToOutline="true"
+                            android:scaleType="centerCrop" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/producto_burritos_5capas"
+                                android:textColor="@color/fogonBlack"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/producto_burritos_5capas_precio"
+                                android:textColor="@color/fogonRed"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="12dp"
+                                    android:layout_height="12dp"
+                                    android:src="@drawable/ic_star" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="4dp"
+                                    android:layout_weight="1"
+                                    android:text="@string/producto_burritos_5capas_rating"
+                                    android:textColor="@color/fogonGrayText"
+                                    android:textSize="11sp" />
+
+                                <TextView
+                                    android:id="@+id/btnAgregarBurritos5Capas"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/bg_button_red"
+                                    app:backgroundTint="@null"
+                                    android:paddingStart="14dp"
+                                    android:paddingEnd="14dp"
+                                    android:paddingTop="6dp"
+                                    android:paddingBottom="6dp"
+                                    android:text="@string/btn_agregar"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/fogonWhite"
+                                    android:textSize="11sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_white"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/ivProductoTortasBirria"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:background="@drawable/bg_placeholder_card"
+                            android:clipToOutline="true"
+                            android:scaleType="centerCrop" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/producto_tortas_birria"
+                                android:textColor="@color/fogonBlack"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/producto_tortas_birria_precio"
+                                android:textColor="@color/fogonRed"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="12dp"
+                                    android:layout_height="12dp"
+                                    android:src="@drawable/ic_star" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="4dp"
+                                    android:layout_weight="1"
+                                    android:text="@string/producto_tortas_birria_rating"
+                                    android:textColor="@color/fogonGrayText"
+                                    android:textSize="11sp" />
+
+                                <TextView
+                                    android:id="@+id/btnAgregarTortasBirria"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/bg_button_red"
+                                    app:backgroundTint="@null"
+                                    android:paddingStart="14dp"
+                                    android:paddingEnd="14dp"
+                                    android:paddingTop="6dp"
+                                    android:paddingBottom="6dp"
+                                    android:text="@string/btn_agregar"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/fogonWhite"
+                                    android:textSize="11sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_white"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/ivProductoTresLeches"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:background="@drawable/bg_placeholder_card"
+                            android:clipToOutline="true"
+                            android:scaleType="centerCrop" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/producto_tres_leches"
+                                android:textColor="@color/fogonBlack"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="@string/producto_tres_leches_precio"
+                                android:textColor="@color/fogonRed"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="12dp"
+                                    android:layout_height="12dp"
+                                    android:src="@drawable/ic_star" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="4dp"
+                                    android:layout_weight="1"
+                                    android:text="@string/producto_tres_leches_rating"
+                                    android:textColor="@color/fogonGrayText"
+                                    android:textSize="11sp" />
+
+                                <TextView
+                                    android:id="@+id/btnAgregarTresLeches"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:background="@drawable/bg_button_red"
@@ -655,6 +1049,7 @@
         </RelativeLayout>
 
         <TextView
+            android:id="@+id/tvBienvenida"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -813,29 +1208,7 @@
                 android:textSize="14sp" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/rowCercaDeMi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="16dp">
 
-            <ImageView
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:src="@drawable/ic_menu_near_me"
-                android:tint="@color/fogonGrayText" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="@string/menu_cerca_de_mi"
-                android:textColor="@color/fogonBlack"
-                android:textSize="14sp" />
-        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/rowConfiguracion"

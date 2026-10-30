@@ -9,8 +9,15 @@ material = "1.14.0"
 activity = "1.13.0"
 constraintlayout = "2.2.1"
 activityKtx = "1.13.0"
+googleServices = "4.5.0"
+firebaseBom = "34.17.0"
+credentials = "1.5.0"
+googleid = "1.2.0"
+coroutinesAndroid = "1.11.0"
+viewpager2 = "1.1.0"
 
 [libraries]
+play-services-location = { group = "com.google.android.gms", name = "play-services-location", version = "21.3.0" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -20,7 +27,15 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-activity-ktx = { group = "androidx.activity", name = "activity-ktx", version.ref = "activityKtx" }
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth" }
+firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore" }
+androidx-credentials = { group = "androidx.credentials", name = "credentials", version.ref = "credentials" }
+androidx-credentials-play-services-auth = { group = "androidx.credentials", name = "credentials-play-services-auth", version.ref = "credentials" }
+googleid = { group = "com.google.android.libraries.identity.googleid", name = "googleid", version.ref = "googleid" }
+kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutinesAndroid" }
+androidx-viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewpager2" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
-
+google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }

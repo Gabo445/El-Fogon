@@ -10,4 +10,5 @@
     <color name="fogonBlack">#212121</color>
     <color name="fogonPlaceholder">#E0E0E0</color>
     <color name="fogonBgLight">#FFF8F7</color>
+    <color name="fogonOrange">#F57C00</color>
 </resources>

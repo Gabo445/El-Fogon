@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tarjeta de un pedido. Arriba: número, estado, fecha y total. "Ver detalles" despliega el seguimiento y los productos aquí mismo. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:background="@drawable/bg_card_white"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvNumeroPedido"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/fogonBlack"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="Pedido #001" />
+
+        <TextView
+            android:id="@+id/tvEstadoChip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_pedido_chip"
+            android:paddingStart="10dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="4dp"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            tools:text="Recibido" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvFechaPedido"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/fogonGrayText"
+        android:textSize="12sp"
+        tools:text="4 de octubre de 2026 · 2:39 p.m." />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvResumenProductos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/fogonGrayText"
+            android:textSize="13sp"
+            tools:text="2 productos" />
+
+        <TextView
+            android:id="@+id/tvTotalPedido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/fogonRed"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="$24.04" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/btnVerDetalles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:padding="4dp"
+        android:textColor="@color/fogonRed"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        tools:text="Ver detalles ▾" />
+
+    <!-- Zona desplegable: empieza cerrada -->
+    <LinearLayout
+        android:id="@+id/layoutDetalles"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="12dp"
+            android:background="@color/fogonBorderGray" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seguimiento"
+            android:textColor="@color/fogonBlack"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <!-- Aquí el código pone los 4 pasos -->
+        <LinearLayout
+            android:id="@+id/contenedorPasos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical" />
+
+        <!-- Espacio reservado para el mapa con el GPS del repartidor (se hace después, con el panel de control) -->
+        <LinearLayout
+            android:id="@+id/layoutMapaPlaceholder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_pedido_mapa"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_pago_moto"
+                android:tint="@color/fogonRed" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Seguimiento en vivo"
+                android:textColor="@color/fogonBlack"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:gravity="center"
+                android:text="Próximamente verás aquí dónde va tu repartidor"
+                android:textColor="@color/fogonGrayText"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btnVerUbicacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="4dp"
+            android:text="Ver ubicación de entrega"
+            android:textColor="@color/fogonRed"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@color/fogonBorderGray" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Productos"
+            android:textColor="@color/fogonBlack"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <!-- Aquí el código pone los productos -->
+        <LinearLayout
+            android:id="@+id/contenedorProductosPedido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="12dp"
+            android:background="@color/fogonBorderGray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Subtotal"
+                android:textColor="@color/fogonGrayText"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tvSubtotalPedido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/fogonBlack"
+                android:textSize="13sp"
+                tools:text="$19.50" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rowDescuentoPedido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvEtiquetaDescuentoPedido"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Descuento"
+                android:textColor="@color/fogonGrayText"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tvDescuentoPedido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/fogonRed"
+                android:textSize="13sp"
+                tools:text="-$1.95" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Costo de entrega"
+                android:textColor="@color/fogonGrayText"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tvEntregaPedido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/fogonBlack"
+                android:textSize="13sp"
+                tools:text="$2.00" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Impuestos"
+                android:textColor="@color/fogonGrayText"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tvImpuestosPedido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/fogonBlack"
+                android:textSize="13sp"
+                tools:text="$2.54" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Total"
+                android:textColor="@color/fogonBlack"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvTotalDetallePedido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/fogonRed"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="$24.04" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@color/fogonBorderGray" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Método de pago"
+            android:textColor="@color/fogonBlack"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvMetodoPagoPedido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/fogonGrayText"
+            android:textSize="13sp"
+            tools:text="Tarjeta de crédito / débito\nTarjeta terminada en 3456" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Entrega en"
+            android:textColor="@color/fogonBlack"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvDireccionPedido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/fogonGrayText"
+            android:textSize="13sp"
+            tools:text="Soyapango — Colonia Las Margaritas, pasaje 3" />
+    </LinearLayout>
+</LinearLayout>

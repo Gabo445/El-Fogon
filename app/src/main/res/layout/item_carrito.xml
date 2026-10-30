@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:background="@drawable/bg_card_white"
+    android:orientation="horizontal"
+    android:padding="12dp">
+
+    <ImageView
+        android:id="@+id/ivImagenCarrito"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/bg_placeholder_rounded"
+        android:clipToOutline="true"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvNombreCarrito"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/fogonBlack"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Hamburguesa BBQ" />
+
+            <TextView
+                android:id="@+id/tvPrecioCarrito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/fogonRed"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="$10.50" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvTamanoCarrito"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/fogonGrayText"
+            android:textSize="12sp"
+            tools:text="Tradicional" />
+
+        <TextView
+            android:id="@+id/tvExtrasCarrito"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/fogonGrayText"
+            android:textSize="12sp"
+            tools:text="Extras: Queso extra, Tocino" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/btnMenosCarrito"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:gravity="center"
+                    android:text="−"
+                    android:textColor="@color/fogonRed"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvCantidadCarrito"
+                    android:layout_width="28dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/fogonBlack"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:text="1" />
+
+                <TextView
+                    android:id="@+id/btnMasCarrito"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:gravity="center"
+                    android:text="+"
+                    android:textColor="@color/fogonRed"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/btnEliminarCarrito"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:gravity="center"
+                android:text="🗑️"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

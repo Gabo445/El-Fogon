@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fogonBgLight">
+
+    <!-- Botón fijo "Guardar ubicación" -->
+    <LinearLayout
+        android:id="@+id/btnGuardarDireccion"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/bg_button_red"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Guardar ubicación"
+            android:textAllCaps="false"
+            android:textColor="@color/fogonWhite"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/btnGuardarDireccion"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_arrow_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Dirección de Entrega"
+                android:textColor="@color/fogonRed"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="20dp">
+
+                <!-- Aviso de zonas -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_input"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="⚠️ Zonas donde entregamos"
+                        android:textColor="@color/fogonBlack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="El Fogón está ubicado cerca de la Universidad Don Bosco, Soyapango. Por disponibilidad de nuestros repartidores, solo entregamos en las zonas de la lista de abajo. Si tu zona no aparece ahí, lamentablemente no podemos aceptar tu pedido por el momento."
+                        android:textColor="@color/fogonGrayText"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="📍 Dónde nos encontramos"
+                    android:textColor="@color/fogonBlack"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Esta es nuestra ubicación — Universidad Don Bosco, Soyapango"
+                    android:textColor="@color/fogonGrayText"
+                    android:textSize="12sp" />
+
+                <WebView
+                    android:id="@+id/webViewMapa"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Elige tu zona"
+                    android:textColor="@color/fogonBlack"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/contenedorZonas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="Dirección específica"
+                    android:textColor="@color/fogonBlack"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <!-- Único camino para llenar la dirección: el GPS -->
+                <TextView
+                    android:id="@+id/tvUsarUbicacionActual"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_boton_ubicacion"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:minHeight="48dp"
+                    android:padding="12dp"
+                    android:text="📍 Usar mi ubicación actual"
+                    android:textAllCaps="false"
+                    android:textColor="@color/fogonRed"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <!-- Cuadro de SOLO LECTURA: es un TextView, no un EditText, así
+                     que no hay cursor, ni teclado, ni forma de escribir en él.
+                     Solo se llena desde el código con el resultado del GPS. -->
+                <TextView
+                    android:id="@+id/tvDireccionEspecifica"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/bg_direccion_bloqueada"
+                    android:gravity="top"
+                    android:hint="Toca «Usar mi ubicación actual» y aquí aparecerá tu dirección"
+                    android:minLines="3"
+                    android:padding="12dp"
+                    android:textColor="@color/fogonBlack"
+                    android:textColorHint="@color/fogonGrayText"
+                    android:textIsSelectable="false"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="🔒 Por seguridad, tu dirección se toma de tu ubicación real (GPS) y no se puede escribir a mano. Por eso debes estar en el lugar donde quieres recibir tu pedido."
+                    android:textColor="@color/fogonGrayText"
+                    android:textSize="12sp" />
+
+                <!-- Solo aparece cuando ya hay coordenadas (detectadas con
+                     GPS, o de una dirección ya guardada antes) -->
+                <LinearLayout
+                    android:id="@+id/contenedorMiUbicacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="📍 Así se ve tu ubicación"
+                        android:textColor="@color/fogonBlack"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <WebView
+                        android:id="@+id/webViewMiUbicacion"
+                        android:layout_width="match_parent"
+                        android:layout_height="180dp"
+                        android:layout_marginTop="8dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvBorrarDireccion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:text="🗑️ Borrar ubicación guardada"
+                    android:textColor="@color/fogonRed"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</RelativeLayout>

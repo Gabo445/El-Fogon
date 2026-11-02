@@ -1,7 +1,11 @@
-Anderson Ruben Portillo Alfaro PA250105 100%
-Dinana Guadalupe Rivera Navas RN250337 100%
-Nahum de Jesus Flores Giron FG250084 100%
-Ana Ruth Lopez Lima LL250088 100%
+**Integrantes:**
+* Anderson Ruben Portillo Alfaro - PA250105 (100%)
+* Nahum de Jesús Flores Girón - FG250084 (100%)
+* Ana Ruth López Lima - LL250088 (100%)
+* Josué Gabriel Vásquez Echegoyen - VE250083 (100%)
+* Gabriel Arnoldo Esquivel Rivera - ER241617 (100%)
+
+**Fecha de entrega:** 31/10/2026
 
 
 # 🔥 El Fogón
